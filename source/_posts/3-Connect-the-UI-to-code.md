@@ -82,10 +82,13 @@ override func viewDidLoad() {
 实现UITextFieldDelegate协议方法textFieldShouldReturn(\_:) 和 textFieldDidEndEditing(\_:)
 
 ```
-func textFieldDidEndEditing(textField: UITextField) {
-    mealNameLabel.text = textField.text
+func textFieldShouldReturn(textField: UITextField) -> Bool {
+    // Hide the keyboard.
+    textField.resignFirstResponder()
+    return true
 }
 ```
+
 ```
 func textFieldDidEndEditing(textField: UITextField) {
     mealNameLabel.text = textField.text
